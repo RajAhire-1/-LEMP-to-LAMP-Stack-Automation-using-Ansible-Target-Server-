@@ -6,17 +6,24 @@ Instead of manually uninstalling and installing services, the entire process is 
 
 ---
 
+## 🔗 Project Links
+
+* 📘 **Medium Article**: [Migrating from LEMP to LAMP Stack on Amazon Linux using Ansible](https://medium.com/@rajahire326/migrating-from-lemp-to-lamp-stack-on-amazon-linux-using-ansible-19075837d21a)
+* 💻 **GitHub Profile**: [https://github.com/RajAhire-1](https://github.com/RajAhire-1)
+
+---
+
 ## Project Overview
 
 The Ansible playbook performs the following actions on the target server:
 
-- Removes Nginx
-- Installs Apache (httpd)
-- Installs MariaDB
-- Installs PHP and PHP-FPM
-- Stops and disables the Nginx service
-- Starts and enables Apache, MariaDB, and PHP-FPM services
-- Deploys a sample `index.html` file to verify the Apache setup
+* Removes Nginx
+* Installs Apache (httpd)
+* Installs MariaDB
+* Installs PHP and PHP-FPM
+* Stops and disables the Nginx service
+* Starts and enables Apache, MariaDB, and PHP-FPM services
+* Deploys a sample `index.html` file to verify the Apache setup
 
 This simulates a real-world DevOps migration scenario where an existing web stack must be replaced safely and automatically.
 
@@ -24,26 +31,24 @@ This simulates a real-world DevOps migration scenario where an existing web stac
 
 ## Technology Stack
 
-- Operating System: Amazon Linux  
-- Automation Tool: Ansible  
-- Web Server: Apache (httpd)  
-- Database: MariaDB  
-- Backend Language: PHP, PHP-FPM  
-- Inventory Type: Static inventory (`inventory.ini`)  
+* Operating System: Amazon Linux
+* Automation Tool: Ansible
+* Web Server: Apache (httpd)
+* Database: MariaDB
+* Backend Language: PHP, PHP-FPM
+* Inventory Type: Static inventory (`inventory.ini`)
 
 ---
 
 ## Project Structure
 
 ```
-
 ansible-lemp-to-lamp/
 ├── lemp_on_target.yml
 ├── inventory.ini
 ├── index.html
 └── README.md
-
-````
+```
 
 ---
 
@@ -53,10 +58,10 @@ This playbook is executed on a remote target server defined in the inventory fil
 
 ### Key Tasks Performed
 
-- Package management using the `dnf` module
-- Service control using the `systemd_service` module
-- Conditional service handling using loops
-- File deployment using the `copy` module
+* Package management using the `dnf` module
+* Service control using the `systemd_service` module
+* Conditional service handling using loops
+* File deployment using the `copy` module
 
 The playbook uses `become: yes` to perform system-level changes securely.
 
@@ -69,7 +74,7 @@ The inventory file defines the target server and SSH access details:
 ```ini
 [targetserver]
 172.31.11.163 ansible_user=ec2-user ansible_ssh_private_key_file=/home/ec2-user/com.pem
-````
+```
 
 This allows Ansible to connect securely to the remote EC2 instance.
 
@@ -141,7 +146,5 @@ It highlights:
 
 ## Author
 
-Raj Ahire
+**Raj Ahire**
 AWS | DevOps | Terraform | Ansible | Automation
-
-```
