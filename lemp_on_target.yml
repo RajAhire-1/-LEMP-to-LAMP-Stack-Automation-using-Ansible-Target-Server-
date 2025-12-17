@@ -1,0 +1,33 @@
+--- # install lemp on target server in optimaized format
+ - name: install lemp on target server 
+   hosts: targetserver
+   become: yes
+   tasks:
+    - name:  uninstall nginx and install httpd, mariadb and php, php-fpm packages
+      ansible.builtin.dnf:
+        name:
+          - nginx
+        state: absent
+        name:
+          - httpd
+          - mariadb105-server
+          - php
+          - php-fpm
+        state: present
+    - name: stop and disable nginx and start and enable httpd ,mariadb , and php service
+      ansible.builtin.systemd_service:
+        name: "{{ item }}"
+        state: "{{ 'stopped' if item == 'nginx' else 'started' }}"
+        enabled: "{{ 'false' if item == 'nginx' else 'true' }}"
+      loop:
+        - nginx
+        - httpd
+        - mariadb
+        - php-fpm
+    - name: deploy index.php fileunu
+      ansible.builtin.copy:
+        src: /home/ec2-user/index.html
+        dest: /var/www/html/index.html
+        mode: '0644'
+        owner: apache
+        
