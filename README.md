@@ -5,6 +5,8 @@ This project demonstrates how to automate the migration from a **LEMP stack (Lin
 Instead of manually uninstalling and installing services, the entire process is handled through a single Ansible playbook executed on a remote target server.
 
 ---
+![](/mini.png)
+
 
 ## 🔗 Project Links
 
